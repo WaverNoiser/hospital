@@ -11,14 +11,20 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/app');
 var login = require('./routes/login');
 var routesUser = require('./routes/usuario');
+const hospital = require('./routes/hospital');
+const medico = require('./routes/medico');
+const BusquedaRoutes = require('./routes/busqueda');
 
 
 // use
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use('/medico', medico);
+app.use('/hospital', hospital);
 app.use('/user', routesUser);
 app.use('/login', login);
+app.use('/busqueda', BusquedaRoutes);
 app.use('/', routes);
 
 

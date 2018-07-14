@@ -12,20 +12,20 @@ exports.validToken = function ( req, res, next ){
         if (err) {
             return res.status(401).json({
                 ok: false,
-                msg: 'token no valido',
-                errors: err
+                msg: 'token no valido',     
+                errors: err 
             });
         }
 
         req.user = decoded.user;
 
         next();
-        res.status(200)
+      /*   res.status(200)
         .json({
             ok: true,
             decoded:decoded,
             userToken: req.user
-        });
+        }); */
 
 
     });
